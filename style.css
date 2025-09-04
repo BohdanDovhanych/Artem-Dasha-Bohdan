@@ -1,1 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Kurale&display=swap');
+body {
+    font-family: 'Kurale', serif;
+    background-image: linear-gradient(45deg, rgb(252, 169, 90),rgb(162, 85, 124),rgb(71, 0, 157));
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: white;
+    padding: 15px 0;
+    border-radius: 10px;
+    box-shadow: 0 0 20px black;
+    width: 387px;
+    text-align: center;
+}
+
+h1 {
+    color: #FFBDBD;
+    -webkit-text-stroke: 0.1px #000000;
+}
+
+button {
+    padding: 10px;
+    background: #CC5500;
+    border: none;
+    border-radius: 4;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    color: #CC5500;
+}
+
+.date-picker, .task-input {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+.task-screen, .add-task-screen {
+    display: none;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+li {
+    background: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li .delete {
+    background: #DC3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+li .delete:hover {
+    background: #970211;
+}
+
+@media (orientation: portrait) and (max-width: 450px) {
+    .container {
+        width: 90%;
+        max-width: 300px;
+        padding: 15px 0;
+        border-radius: 10px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    button, .date-picker, .task-input {
+        width: 90%;
+        padding: 10px;
+    }
+
+    ul {
+        margin-top: 15px;
+    }
+
+    li {
+        padding: 10px;
+    }
+
+    li .delete {
+        width: 15px;
+    }
+}
