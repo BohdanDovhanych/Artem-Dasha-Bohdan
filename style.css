@@ -28,13 +28,14 @@ button {
     padding: 10px;
     background: #CC5500;
     border: none;
-    border-radius: 4;
+    border-radius: 4px;
     cursor: pointer;
     margin-top: 10px;
 }
 
 button:hover {
     color: #CC5500;
+    background: #622901;
 }
 
 .date-picker, .task-input {
@@ -106,4 +107,46 @@ li .delete:hover {
     li .delete {
         width: 15px;
     }
+}
+.calendar-header{
+    position: relative;
+    top: -68px;
+    width: 100%;
+    height: 100px;
+    background-color: #c35a54;
+    border-radius: 5px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 12px #3c3939, 
+    inset 0 -8px 2px #3c3939 ;
+}
+
+.clips {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: -60px;
+    padding: 0 30px;
+}
+
+.clip {
+    width: 18px;
+    height: 35px;
+    background-color: #f4c542;
+    border-radius: 4px;
+    z-index: 1;
+    box-shadow: 0 3px 4px #3c3939;
+    position: relative;
+}
+
+.clip::after {
+    content: "";
+    width: 10px;
+    height: 5px;
+    background-color: #565151;
+    position: absolute;
+    top: 6px;
+    left: 4px;
+    border-radius: 2px;
 }
