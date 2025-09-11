@@ -67,3 +67,45 @@ selectDateButton.addEventListener('click', () => {
     showScreen(taskScreen) // Показати екран завдань
     renderTasks(selectedDate) // Відобразити завдання для вибраної дати
 })
+
+
+// Додавання обробника події на форму додавання завдання
+taskForm.addEventListener('submit', function (e) {
+    //За замовчуванням, коли форму відправляють, браузер перезавантажує сторінку, що призводить до втрати всіх даних, які не зберігаються.
+    e.preventDefault() // Запобігти стандартній поведінці форми
+    let taskText = taskInput.value // Отримання тексту завдання
+    let selectedDate = taskDateSpan.innerHTML // Отримання вибраної дати
+
+
+    if (!tasks[selectedDate]) { // Якщо для вибраної дати немає завдань, створити новий масив
+        tasks[selectedDate] = []
+    }
+
+    tasks[selectedDate].push(taskText) // Додати нове завдання до масиву завдань для вибраної дати
+    taskInput.value = '' // Очистити поле введення
+    showScreen(taskScreen) // Показати екран завдань
+    renderTasks(selectedDate) // Відобразити завдання для вибраної дати
+})
+
+
+// Додавання обробника події на список завдань для видалення завдань
+taskList.addEventListener('click', function (event) {
+    if (event.target.className == 'delete') { // Якщо клік був на кнопку видалення
+        let taskItem = event.target.parentElement // Отримуємо батьківський елемент кнопки "delete".
+        let selectedDate = taskDateSpan.innerHTML // Отримати вибрану дату
+        let taskText = taskItem.firstChild.nodeValue // Отримати текст завдання
+        // taskItem.firstChild  перший вузол всередині елемента (це текст до кнопки).
+        //.nodeValue  сам текст.
+        //.trim() прибирає зайві пробіли на початку та в кінці.
+        //Таким чином отримуємо рядок типу "Купити молоко".
+
+        // Видалити завдання з масиву завдань для вибраної дати
+        for (let i = 0; i < tasks[selectedDate].length; i += 1) {
+            if (tasks[selectedDate][i] == taskText) {
+                tasks[selectedDate].splice(i, 1) // Видалити завдання з масиву
+                break
+            }
+        }
+        renderTasks(selectedDate) // Відобразити оновлений список завдань
+    }
+})
